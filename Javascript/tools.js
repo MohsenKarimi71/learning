@@ -33,9 +33,22 @@ const sortArray = function (arr) {
     return arr;
 }
 
+
+const _liveAvgWrapper = function() {
+    let numbers = [];
+
+    return function(new_value) {
+        numbers.push(new_value);
+        let sum = numbers.reduce((t,v) => t+v);
+        return sum / numbers.length
+    }
+}
+const liveAvg = _liveAvgWrapper()
+
 export {
     arraySum,
     arrayMin,
     arrayMax,
     sortArray,
+    liveAvg
 }
