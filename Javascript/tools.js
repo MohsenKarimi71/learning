@@ -45,10 +45,28 @@ const _liveAvgWrapper = function() {
 }
 const liveAvg = _liveAvgWrapper()
 
+
+const badFibo = function(n) {
+    if (n < 0) {
+        return "input number can not be negative!";
+    } else if (n > 45) {
+        return "This is a bad fibo function!, So don't try it with numbers more than 45 ):";
+    } else {
+        if (n < 2) {
+            return n
+        }
+        else {
+            return badFibo(n-1) + badFibo(n-2);
+        }
+    }
+}
+
+
 export {
     arraySum,
     arrayMin,
     arrayMax,
     sortArray,
-    liveAvg
+    liveAvg,
+    badFibo
 }
