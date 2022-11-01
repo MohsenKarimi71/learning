@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - 8000:5000
+    volumes:
+      - ./:/app
+    
+  mysqldb:
+    image: mysql:5.7
+    volumes:
+      - flask-mysql-db:/var/lib/mysql
+      - flask-mysql-config:/etc/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mkmysql1075@
+
+volumes:
+  flask-mysql-db:
+  flask-mysql-config:
