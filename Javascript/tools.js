@@ -43,6 +43,7 @@ const _liveAvgWrapper = function() {
         return sum / numbers.length
     }
 }
+
 const liveAvg = _liveAvgWrapper()
 
 
@@ -62,11 +63,32 @@ const badFibo = function(n) {
 }
 
 
+const _closureFiboWrapper = function() {
+    const fibo_dict = {
+        0 : 0,
+        1 : 1,
+    }
+
+    const fibo = function(n) {
+        if(fibo_dict[n] != undefined) {
+            return fibo_dict[n];
+        } else {
+            fibo_dict[n] = fibo(n-1) + fibo(n-2);
+            return fibo_dict[n];
+        }
+    }
+    return fibo;
+}
+
+const closureFibo = _closureFiboWrapper();
+
+
 export {
     arraySum,
     arrayMin,
     arrayMax,
     sortArray,
     liveAvg,
-    badFibo
+    badFibo,
+    closureFibo
 }
